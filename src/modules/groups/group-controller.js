@@ -13,7 +13,8 @@ class GroupController {
     }
 
 
-    getAllUsers ( request, reply ) {
+    getAllGroups ( request, reply ) {
+        
         reply([
             new Group('1', 'Group One'),
             new Group('2', 'Group Two')
@@ -21,10 +22,11 @@ class GroupController {
     }
 
 
-    getUserById( request, reply ) {
+    getGroupById( request, reply ) {
+
         var id = request.params.id;
         
-        reply(new User(id, 'Name for ' + id ));
+        reply(new Group(id, 'Name for ' + id ));
     }
 
 }

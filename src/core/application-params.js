@@ -7,6 +7,13 @@ class ModuleInfo {
     }
 }
 
+class PluginInfo {
+    constructor(name, version) {
+        this.name = name;
+        this.version = version;
+    }
+}
+
 class ApplicationStartupParams {
     constructor( serverConfiguration, dbConfiguraiton) {
         this.serverConfiguration = serverConfiguration;
@@ -35,6 +42,7 @@ class DbConfiguraiton {
 
 
 exports.ModuleInfo = ModuleInfo;
+exports.PluginInfo = PluginInfo;
 exports.ApplicationStartupParams = ApplicationStartupParams;
 exports.ServerConfiguration = ServerConfiguration;
 exports.DbConfiguraiton = DbConfiguraiton;

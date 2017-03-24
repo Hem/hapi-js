@@ -7,7 +7,7 @@ class AppServer {
     
     init ( params ) {
 
-        var serverConfg = params.serverConfiguration || {
+        const serverConfg = params.serverConfiguration || {
                                                                 host: 'localhost',
                                                                 port: 5000
                                                         };
@@ -31,14 +31,28 @@ class AppServer {
         });
 
 
-        ['users'].forEach( (moduleName) => {
+        // load plugins....
+        serverConfg
+            .pluginsToLoad
+                .forEach((pluginName) => {
 
-            var module = (require("./modules/" + moduleName)).default();
-                console.log(`Register module ${module.info().name} v${module.info().version}`);
-            
-            module.init(server, params);
+                    let plugin = (require("./plugins/" + pluginName)).default();
+                        console.log(`Register Plugin ${plugin.info().name} v${plugin.info().version}`);
+                    
+                    plugin.register(server, params);
 
-        });
+                });
+
+
+        serverConfg
+            .modulesToLoad
+                .forEach( (moduleName) => {
+
+                    let module = (require("./modules/" + moduleName)).default();
+                        console.log(`Register module ${module.info().name} v${module.info().version}`);
+                    
+                    module.init(server, params);
+                });
 
 
         return server;

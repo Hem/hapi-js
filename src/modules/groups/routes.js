@@ -3,27 +3,28 @@ const Controller = require('./group-controller');
 
 function setupRoutes(server, params) {
     
-    const controller = new controller.GroupController(params);
+    const controller = new Controller.GroupController(params);
     server.bind(controller);
 
     server.route({
         method: 'GET',
-        path: '/api/users',
+        path: '/api/groups',
         config: {
-            handler: controller.getAllUsers,
-            description: 'Lists all users',
-            tags: ['api', 'users']
+            handler: controller.getAllGroups,
+            description: 'List all groups',
+            tags: ['api', 'groups']
         }
     });
 
 
     server.route({
             method: 'GET',
-            path: '/api/user/{id}',
+            path: '/api/group/{id}',
             config: {
-                handler: controller.getUserById,
-                description: 'Get user by Id',
-                tags: ['api', 'users'],
+                handler: controller.getGroupById,
+
+                description: 'Get group by id',
+                tags: ['api', 'groups'],
                 validate: {
                     params: {
                         id: Joi.string().required()
