@@ -1,13 +1,13 @@
 
 const appParams = require('../../core/application-params');
 
-class AppModule {
+var AppModule = function() {
 
-    init ( server, params ) {
+    this.init = function ( server, params ) {
         require('./routes').setupRoutes(server, params);
-    }
+    };
 
-    info () {
+    this.info = function() {
         return new appParams.ModuleInfo('User\'s Modules', '1.0.0');
     }
 }

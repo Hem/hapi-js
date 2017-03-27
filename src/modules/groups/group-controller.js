@@ -1,19 +1,15 @@
-class Group {
-    constructor(id, name) {
-        this.id = id;
-        this.name = name;
-    }
+function Group (id, name) {
+    this.id = id;
+    this.name = name;
 }
 
 
-class GroupController {
+function GroupController (appParams) {
 
-    constructor( appParams ){
-        this.appParams = appParams;
-    }
+    this.appParams = appParams;
 
 
-    getAllGroups ( request, reply ) {
+    this.getAllGroups = function( request, reply ) {
         
         reply([
             new Group('1', 'Group One'),
@@ -22,7 +18,7 @@ class GroupController {
     }
 
 
-    getGroupById( request, reply ) {
+    this.getGroupById = function( request, reply ) {
 
         var id = request.params.id;
         

@@ -1,8 +1,8 @@
 const AppParams = require('../../core/application-params');
 
-class Plugin {
+const Plugin = function() {
 
-    register(server, appConfig) {
+    this.register = function(server, appConfig) {
         
         const options = {
             ops: {
@@ -23,10 +23,10 @@ class Plugin {
                 console.log('error', error);
             }
         });
-    }
+    };
 
     // info!
-    info() {
+    this.info = function() {
         return new AppParams.PluginInfo("Logger Plugin Wrapper", "1.0");
     }
 }

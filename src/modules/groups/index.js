@@ -1,12 +1,12 @@
 const appParams = require('../../core/application-params');
 
-class AppModule {
+function AppModule() {
 
-    init ( server, params ) {
+    this.init = function( server, params ) {
         require('./routes').setupRoutes(server, params);
     }
 
-    info () {
+    this.info = function() {
         return new appParams.ModuleInfo('Groups\'s Modules', '1.0.0');
     }
 }

@@ -9,14 +9,17 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "good": "7.1.0",
+    "good-console": "6.4.0",
     "hapi": "16.1.0",
-    "joi":"10.3.0",
-    
-    "hapi-swagger":"7.7.0",
+    "hapi-swagger": "7.7.0",
     "inert": "4.1.0",
-    "vision": "4.1.1",
+    "joi": "10.3.0",
+    "knex": "0.12.9",
+    "mysql2": "1.2.0",
+    "vision": "4.1.1"
+  },
+  
+  "engine": "node >=  4.6.2"
 
-    "good":"7.1.0",
-    "good-console": "6.4.0"
-  }
 }

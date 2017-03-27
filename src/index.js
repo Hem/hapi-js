@@ -7,7 +7,7 @@ const AppParams = require('./core/application-params');
 // Server startup configuration
 const serverConf = new AppParams.ServerConfiguration(   'localhost', 
                                                         3500, 
-                                                        ['users', 'groups'], 
+                                                        ['users', 'groups' ], 
                                                         ['swagger', 'loggers']     );
 
 // Database configuration

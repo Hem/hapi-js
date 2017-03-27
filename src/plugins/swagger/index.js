@@ -1,8 +1,8 @@
-const AppParams = require('../../core/application-params');
+var AppParams = require('../../core/application-params');
 
-class SwaggerPlugin {
+var SwaggerPlugin = function () {
 
-    register(server, appConfig) {
+    this.register = function(server, appConfig) {
         server.register([
             require('inert'),
             require('vision'),
@@ -29,10 +29,10 @@ class SwaggerPlugin {
                 console.log('error', error);
             }
         });
-    }
+    };
 
     // info!
-    info() {
+    this.info = function() {
         return new AppParams.PluginInfo("Swagger Plugin Wrapper", "1.0");
     }
 }

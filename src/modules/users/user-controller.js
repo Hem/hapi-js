@@ -1,33 +1,29 @@
 
-class User {
-    constructor (id, name) {
-        this.id = id;
-        this.name = name;
-    }
-}
+const User = function(id, name) {
+    this.id = id;
+    this.name = name;
+};
 
 
-class UserController {
+const UserController = function(appParams) {
 
-    constructor ( appParams ) {
-        this.appParams = appParams;
-    }
+    this.appParams = appParams;
 
-    getAllUsers( request, reply ) {
+    this.getAllUsers = function( request, reply ) {
         reply([
             new User('1', 'Name for 1'),
             new User('2', 'Name for 2')
         ]);
-    }
+    };
 
 
-    getUserById( request, reply) {
+    this.getUserById = function( request, reply) {
         var id = request.params.id;
         
         reply( new User(id, 'Name of ' + id ) );
     }
 
-}
+};
 
 exports.User = User;
 exports.UserController = UserController;
